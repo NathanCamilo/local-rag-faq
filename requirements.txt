@@ -1,7 +1,8 @@
 langchain
-langchain_community
-langchain_ollama
-faiss-cpu
-sentence-transformers
-pypdf
+langchain-community
+langchain-core
+langchain-ollama
 langchain-huggingface
+langchain-text-splitters
+faiss-cpu
+pypdf
