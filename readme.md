@@ -87,7 +87,3 @@ prompt = ChatPromptTemplate.from_template(template)
 ```
 
 Você pode ajustar o tom ou formato da resposta editando esse template.
-
-```
-
-```
