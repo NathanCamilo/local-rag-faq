@@ -17,6 +17,7 @@ A aplicação usa **LangChain**, **FAISS**, **Ollama** e **HuggingFace Embedding
 
 ## 📁 Estrutura do projeto
 
+```bash
 local-rag-faq/
 │
 ├── data/
@@ -28,6 +29,7 @@ local-rag-faq/
 ├── prompts.py # Template de prompt usado pelo agente
 ├── requirements.txt # Dependências do ambiente
 └── README.md
+```
 
 ---
 
@@ -38,12 +40,16 @@ local-rag-faq/
 ```bash
 conda create -n LangChainEnv python=3.10
 conda activate LangChainEnv
-2. Instalar dependências
-
-pip install -r requirements.txt
 ```
 
-3. Instalar e iniciar o Ollama
+### 2. Instalar dependências
+
+```bash
+pip install -r requirements.txt
+
+```
+
+### 3. Instalar e iniciar o Ollama
 
 Baixe e instale o Ollama: https://ollama.ai
 
@@ -55,34 +61,7 @@ E deixe o servidor Ollama rodando:
 
 ollama serve
 
-🚀 Execução
-
-Com o Ollama rodando, execute o script:
-
-python main.py
-
-Na primeira execução, o sistema:
-
-Carregará o PDF FAQ - PerguntasFrequentes - MovimentacaoPessoal_v5.1.pdf
-
-Dividirá o texto em chunks
-
-Criará o índice vetorial FAISS local (faq_db_faiss/)
-
-Após isso, nas execuções seguintes, ele carregará o índice salvo automaticamente.
-
-💬 Exemplo de saída
-loading vetorial database...
-building RAG chain
-
-Question: Como solicitar a movimentação?
---- Contexto Encontrado para a Pergunta: 'solicitar movimentação' ---
-Fonte 1:
-...
-
-Resposta: Para solicitar a movimentação, você deve encaminhar informações relativas ao processo à Unidade de Gestão de Pessoas...
-
-🧠 Como funciona
+### 🧠 Como funciona
 
 Carregamento do documento PDF
 → PyPDFLoader extrai o texto.
@@ -99,10 +78,16 @@ Busca semântica (Retriever)
 Geração da resposta (RAG)
 → O contexto recuperado é passado ao LLM llama3.1:8b via Ollama, que gera uma resposta natural e contextualizada.
 
-🧩 Prompt do agente
+### 🧩 Prompt do agente
 
 O prompt base é definido em prompts.py e controlado por:
 
+```bash
 prompt = ChatPromptTemplate.from_template(template)
+```
 
 Você pode ajustar o tom ou formato da resposta editando esse template.
+
+```
+
+```
